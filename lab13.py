@@ -5,6 +5,7 @@
 
 
 ### Only a test story, we can switch to something else
+### make sure the underscores are a total of 7 underscores, it won't work otherwise.
 story_with_blanks = """
 Airlines made history this summer when they launched the first scheduled commercial flights from the US to _______ in more than 50 years, part of the thaw in relations between the US and the _______.
 It already looks like too much too soon.
