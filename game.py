@@ -1,7 +1,7 @@
 from random import randint
 
 def welcome_message():
-  showInformation("Welcome to Bitspice Island!")
+  showInformation("Welcome to Bitspice Island, "+player_name+"!")
   
 def help_message():
   showInformation("""In each room you will be told which directions you can go
@@ -184,6 +184,7 @@ game_map, starting_room = create_game(3,3)
 current_room = game_map[starting_room[0]][starting_room[1]]
 # Something fun to start with.
 player_inventory = ["Sunglasses"]
+player_name = requestString("Please enter your name:")
 welcome_message()
 help_message()
 while(True):
@@ -193,7 +194,7 @@ while(True):
   printNow("You see the following items in the room: " + ", ".join(current_room.get_items()))
   printNow("You have the following items in your bag: " + ", ".join(player_inventory))
   if "Entrance Room" in current_room.get_name() and "Skeleton Key" in player_inventory:
-    showInformation("\nYou exit the house of rooms, and never look back. You Win! Congratulations!")
+    showInformation("\nYou exit the house of rooms, and never look back. You Win! Congratulations, "+player_name+"!")
     break
     
   # Ask for info and send it to the parser.
@@ -222,7 +223,7 @@ while(True):
         printNow("You have entered the '" + new_room.get_name() + "'")
         printNow(new_room.get_description())
         printNow("\nThe eyes move quickly and lunge in your direction. You have nothing to defend yourself and get eaten. You died. Game Over.")
-        printNow("Thanks for playing!")
+        printNow("Thanks for playing, "+player_name+"!")
         break
         
       # If everything checks out, the new room is hte current room, and we repeat.
@@ -239,6 +240,6 @@ while(True):
       player_inventory = player_inventory + [item]
   # If they type exit, quit.
   if result[0] == 'exit':
-    printNow("Thanks for playing!")
+    printNow("Thanks for playing, "+player_name+"!")
     break
  
